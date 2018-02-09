@@ -1,0 +1,23 @@
+{% import 'bootstrap/wtf.html' as wtf%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/picsupload.css')}}">
+    {{ dropzone.load() }}
+</head>
+<body>
+  
+  <h1>
+      pics upload form
+  </h1>
+  <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+    
+    <input type="file"  name="photo" class="form-control" required>
+<input type="submit">
+</body>
+</html>

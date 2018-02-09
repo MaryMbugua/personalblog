@@ -21,6 +21,7 @@ def index():
 
 
 @main.route('/admin',methods = ['GET','POST'])
+@login_required
 def admin():
     '''
     View root page function that returns the index page and its data
@@ -28,3 +29,13 @@ def admin():
    
 
     return render_template('admin.html')
+@main.route('/post',methods = ['GET','POST'])
+@login_required
+def blogpost():
+    '''
+    View root page function that returns the index page and its data
+    '''
+   
+
+    return render_template('post.html')
+

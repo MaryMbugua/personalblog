@@ -29,6 +29,14 @@ class Admin(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+class Blogpost(UserMixin,db.Model):
+    __tablename__ = 'blogpost'
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column(db.String(255),index = True)
+    email = db.Column(db.String(255),unique = True,index = True)
+    password_hash = db.Column(db.String(255))
+
+
 
     
     

@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,SubmitField,FileField,RadioField,BooleanField
-from wtforms.validators import Required,AnyOf
+from wtforms.validators import Required,AnyOf,Email
 from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
+from ..models import Blogpost,Blogpics
 
 class BlogpostForm(FlaskForm):
     title = StringField('title',validators=[Required()])
@@ -26,3 +27,6 @@ class PicsuploadForm(FlaskForm):
     img9 = FileField('img9')
     img10 = FileField('img10')
     submit = SubmitField('Submit')
+
+class SubscriptionForm(FlaskForm):
+    email = StringField('Email Address',validators=[Required(),Email()])

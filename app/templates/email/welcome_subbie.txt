@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to BeingZen!
+We have just seen you have signed up for BeingZen blog subscription and want to welcome you to the family.
+You'll be getting regular updates once a new blog post is published.  

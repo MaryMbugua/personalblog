@@ -40,12 +40,15 @@ class Blogpost(UserMixin,db.Model):
     paragraph3 = db.Column(db.String())
     paragraph4 = db.Column(db.String()) 
     blogpic_id = db.Column(db.Integer,db.ForeignKey('blogpics.id'))
-
+    comment = db.relationship("Comment",backref='blogposts',lazy="dynamic")
     def __repr__(self):
         return f'{self.title}'
 
     def save_blogposts(self):
         db.session.add(self)
+        db.session.commit()
+    def delete_blogposts(self):
+        db.session.delete(self)
         db.session.commit()
 
 class Blogpics(UserMixin,db.Model):
@@ -73,3 +76,19 @@ class Subscriber(UserMixin,db.Model):
 
     def __repr__(self):
         return f'{self.email}'
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column(db.String(255))
+    commcontent = db.Column(db.String())
+    blogpost_id = db.Column(db.Integer,db.ForeignKey('blogposts.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls, blogpost_id):
+        comments = Comment.query.filter_by(blogpost_id=blogpost_id).all()
+
+        return comments

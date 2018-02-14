@@ -1,0 +1,268 @@
+ /* navbar styles */
+ header{background-image: url(../img/backgrounds/landing.jpg);
+ }
+.dropdown{padding-top: 2%;
+   }
+
+.backgroundtop{color: #ffffff;
+  text-align: center;
+     padding-bottom: 5%;}
+
+.btn-me{margin-left: 5%;
+ background-color: inherit;
+         color: #ffffff;
+         border: none;}
+
+
+
+
+/* The Overlay (background) */
+.overlay {
+ /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+ height: 100%;
+ width: 0;
+ position: fixed; /* Stay in place */
+ z-index: 1; /* Sit on top */
+ left: 0;
+ top: 0;
+ background-color: rgb(0,0,0); /* Black fallback color */
+ background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+ overflow-x: hidden; /* Disable horizontal scroll */
+ transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+ position: relative;
+ top: 25%; /* 25% from the top */
+ width: 100%; /* 100% width */
+ text-align: center; /* Centered text/links */
+ margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+ padding: 8px;
+ text-decoration: none;
+ font-size: 36px;
+ color: #818181;
+ display: block; /* Display block instead of inline */
+ transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+ color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+ position: absolute;
+ top: 20px;
+ right: 45px;
+ font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+ .overlay a {font-size: 20px}
+ .overlay .closebtn {
+     font-size: 40px;
+     top: 15px;
+     right: 35px;
+ }
+}
+
+
+   /* happyhour strip */
+.strip{height:inherit;
+ width: 100%;
+ margin: 0px;
+ border: 0px;
+ padding: 0px;
+ overflow: hidden;}
+
+.happyhour{background-color: #dcdcdc;
+ padding-left: 18%;
+ padding-top: 5%;
+ padding-bottom: 10%;}
+.happyhour:hover{background-color: #a9a9a9;
+ bottom: 0;
+ opacity: 0.9;
+ color: black;
+ overflow: hidden;
+ transition: .5s ease;}
+
+.partytime{color: #ffffff;
+ background-color: #F15A29;
+ padding-left: 18%;
+ padding-top: 10%;
+ padding-bottom: 10%}
+.partytime:hover{background-color: #a9a9a9;
+ bottom: 0;
+ opacity: 0.9;
+ color: black;
+ overflow: hidden;
+ transition: .5s ease;}
+
+.breako{padding-top: 20%;
+ padding-bottom: 30%;
+ text-align: center;
+ color: #ffffff;}
+
+.breakfast{background-image: url(../img/foodtop/breakfast.jpg);
+ margin: 0px;
+ padding: 0px;
+ }
+
+.breakfast:hover{background-color: #a9a9a9;
+ bottom: 0;
+ opacity: 0.9;
+ color: black;
+ overflow: hidden;
+ transition: .5s ease;}
+
+.lunch{background-image: url(../img/foodtop/lunch.jpg);
+ margin: 0px;
+ padding: 0px;}
+
+.lunch:hover{background-color: #a9a9a9;
+ bottom: 0;
+ opacity: 0.9;
+ color: black;
+ overflow: hidden;
+ transition: .5s ease;}
+
+.dinner{background-image: url(../img/foodtop/dinner.jpg);
+ margin: 0px;
+ padding: 0px;}
+
+.dinner:hover{background-color: #a9a9a9;
+ bottom: 0;
+ opacity: 0.9;
+ color: black;
+ overflow: hidden;
+ transition: .5s ease;}
+
+.col-lg-3{margin: 0px;
+ padding: 0px;}
+
+ /* words and pics at the side */
+.cakepics{margin-left: 2%;
+ margin-right: 5%;
+ padding-top: 5%;
+ padding-bottom: 5%;
+ padding-left: 6%;
+ padding-right: 6%;
+ box-shadow: 1px 2px 3px 3px  #dcdcdc; }
+
+.drinksside{margin-right: 5%;
+ padding-top: 6%;
+ padding-bottom: 6%;
+ 
+ padding-left:6%;
+ box-shadow: 1px 2px 3px 3px  #dcdcdc;
+ }
+
+.jumbotron{background-color: #ffffff;}
+.fastfood{ padding-right: 15%;}
+.drinks{padding-left: 15%;}
+.btn{border-color: #F15A29;}
+.btn-lg{color: #F15A29;}
+.fa-long-arrow-right{color: #F15A29;}
+
+
+
+/* floating food stuff */
+.floatingfood{background-image: url(../img/backgrounds/foodsBg.jpg);
+padding-top:10%;
+ padding-bottom: 10%;
+ padding-left: 8%;
+ padding-right: 8%;}
+.onesy{background-color: #ffffff;}
+.junkie{padding-top: 5%;}
+.chickenburger{padding-right: 0px;
+         margin-right:0px;}
+
+.chicken {position: relative;
+         top: 3px;
+ left:15px;}
+
+.chickenpizza{margin-left: 4%;}
+
+.beefburger{margin-left:0px;
+ padding-left: 0px;}
+.arrowright{padding-top: 6%;}
+.nav-link{color: #000000;
+ font-size: 25px;}
+.navsy{background-color: #dcdcdc;
+ border-style: solid;
+ border-width:thin;
+ border-top: 0px;
+ border-color: #a9a9a9;}
+
+
+
+
+
+/* customer reviews part */
+.customerreview{width:90%;
+ height: 10%;
+ margin-top: 12%;
+ margin-bottom: 12%;
+ margin-left: 5%;
+ padding-top: 2%;
+ padding-bottom: 2%;
+ padding-left: 2%;
+ box-shadow: 1px 2px 3px 3px  #dcdcdc; }
+.happycustomers{border-style: solid;
+         border-top: 0px;
+        border-bottom: 0px;
+ border-left: 0px;
+ border-color: #dcdcdc;
+ border-width:thin;}
+
+.ourhappy{text-align: center;
+ color: #F15A29;}
+.george{padding-left: 40%;}
+.great{padding-left: 20%;
+ padding-bottom: 0px;
+ margin-bottom: 0px;}
+.also{padding-left: 26%;
+ padding-top: 0px;}
+.weare{padding-bottom: 0px;
+ margin-bottom: 0px;}
+
+.customerpics{padding-left: 40%;}
+
+.fa-angle-right{color: #F15A29;}
+
+.fa-angle-left{color: #F15A29;}
+
+/* SUBSCRIBE PART!!!!! */
+.subscribe{background-image: url(../img/backgrounds/subscribe.jpg)}
+.subscribetext{padding-top: 10%;
+         color: #ffffff;
+         text-align: center;}
+.subbie{padding-left:35%;
+ padding-bottom: 5%;}
+.btn-primary{background-color: #F15A29;
+         border: #F15A29;}
+
+/* footer */
+footer{background-color: #F15A29;
+ padding-top: 4%;}
+.footers{width: inherit;}
+
+.foots{color: #ffffff;
+ text-align: center;}
+.thatswhat{padding-bottom: 3%;
+ padding-right: 9%;}
+ 
+.restmenu{padding-top: 3%;
+ padding-left: 5%;
+ padding-right: 13%;}
+
+.burgerlogo{font-size: 50px;
+ padding-right: 2%;}
+.menurest{font-size: 15px;}

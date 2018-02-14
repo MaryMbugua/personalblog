@@ -15,9 +15,10 @@
   <h1>
       pics upload form
   </h1>
-  <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+  <form  action="{{url_for('main.blogpostfinal')}}" method="post" enctype = "multipart/form-data">
+
+    {{wtf.quick_form(picsupload_form)}}
     
-    <input type="file"  name="photo" class="form-control" required>
-<input type="submit">
+  </form>
 </body>
 </html>

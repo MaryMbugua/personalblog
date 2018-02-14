@@ -1,0 +1,38 @@
+	/**************************************BODY*****************************/
+
+body { font-family: 'Open Sans Condensed', sans-serif;
+        color: #000;
+          background-color: #fff;}
+
+
+/*styles for div postscentering*/
+div{ text-align: center;
+           display: block;}
+
+ /*fonts on the body*/
+h2{font-weight:bold;
+     font-family: 'Open Sans Condensed', sans-serif;}
+
+h4{font-family: 'Open Sans Condensed', sans-serif;}
+
+p{font-family: 'Open Sans Condensed', sans-serif;
+   font-weight: 600;}
+
+.jumbotron p {font-weight: 500;
+                 color: #000;}
+
+
+/*background colours*/
+.jumbotron {color: inherit;
+      background-color: #fff;}
+
+
+/*hr line made black*/
+hr {margin-top: 20px;
+           margin-bottom: 20px;
+           border: 0;
+           border-top: 1px solid #000;}
+/*colour for anchor tag a part for readmore*/
+a { font-size: 30px;
+    color: #000;
+    text-decoration: none;}

@@ -32,12 +32,14 @@ class Admin(UserMixin,db.Model):
 class Blogpost(UserMixin,db.Model):
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer,primary_key = True)
-    title = db.Column(db.String(255))
+    title = db.Column(db.String())
     date = db.Column(db.String(255))
-    paragraph1 = db.Column(db.String(255))
-    paragraph2 = db.Column(db.String(255))
-    paragraph3 = db.Column(db.String(255))
-    paragraph4 = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+    paragraph1 = db.Column(db.String())
+    paragraph2 = db.Column(db.String())
+    paragraph3 = db.Column(db.String())
+    paragraph4 = db.Column(db.String()) 
+    blogpic_id = db.Column(db.Integer,db.ForeignKey('blogpics.id'))
 
     def __repr__(self):
         return f'{self.title}'
@@ -59,3 +61,7 @@ class Blogpics(UserMixin,db.Model):
     img8 = db.Column(db.String(255))
     img9 = db.Column(db.String(255))
     img10 = db.Column(db.String(255))
+    blogposts = db.relationship('Blogpost',backref='Blogpics',lazy="dynamic")
+
+    def __repr__(self):
+        return f'{self.img1}'

@@ -1,0 +1,146 @@
+{% import 'macros.html' as macro %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Being Zen|Home</title>
+    <!-- font for header and whole blog -->
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple|Open+Sans+Condensed:300,300i,700" rel="stylesheet">
+    <!-- link to bootstrap cdn -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- linkt to custom stylesheet -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+</head>
+<body>
+<!-- NAV BAR-->
+	<nav class="naviy navbar navbar-default  navbar-fixed-top">
+		<div class="container-fluid">
+
+		<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Being Zen</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav ">
+				        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
+				        <li><a href="/fashion">Fashion</a></li>
+				        <li><a href="/lifestyle">Lifestyle</a></li>
+				        <li><a href="/about">About</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+						        <input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">Search</button>
+					</form>  
+				</ul>
+				       
+				      
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+<div class="container">
+<hr> <!-- line dividing -->
+</div>
+
+ <!--blogposts called from database  -->
+<div class="container">
+        <div class="row">
+                {{macro.displayPostsList(allposts)}}
+        </div>
+</div> 
+
+
+<div class="container">
+ <h5>insert comment section here</h5>
+</div>
+
+
+<div class="container">
+    <hr> <!-- line dividing -->
+</div>
+
+<!-- GET UPDATES -->
+<div id="pen">
+        <div class="container" >
+                <p>Get Updates!</p>
+        
+        
+                <form class="form-inline">
+        
+                         
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                        </div>
+        
+                        <button type="submit" class="btn btn-default">Notify Me</button>
+        
+                </form>
+        
+        </div>
+        
+</div> <!-- end of id pen -->
+<div class="container">
+    <hr> <!-- line dividing -->
+</div>
+<!-- COLOUR CHANGE PART -->
+
+<!-- inks to other parts of site -->
+<div id="biro" style="background: #000; color: #fff;">
+        <ul>
+                        
+        <li><a href="/about" style="background: #000; color: #fff;">About</a></li>
+        <li><a href="/fashion">Fashion</a></li>
+        <li><a href="/lifestyle">Lifestyle</a></li>
+                             
+        </ul>
+<!-- icons for social media which shud be links -->
+    
+    
+<!-- footer with social media icons and copyright -->
+                                    
+        <footer>
+                       	
+        <img src="{{url_for('static',filename='img/facebook.png')}}">
+        <img src="{{url_for('static',filename='img/instagram.png')}}">
+        <img src="{{url_for('static',filename='img/mail.png')}}">
+        <img src="{{url_for('static',filename='img/pinterest.png')}}">
+        <img src="{{url_for('static',filename='img/snapchat.png')}}">
+                                    
+    
+                              
+        <p>&copy; 2017 Tuts.</p>
+        </footer>
+</div>
+                        
+    
+
+     <!-- link to boostrap js -->
+     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+     <!-- link to jquery -->
+     
+    <script src="{{url_for('static',filename='js/jquery-3.2.1.js')}}"></script>
+     <!-- link to srcipts.js -->
+     <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+
+
+
+
+</body>
+</html>

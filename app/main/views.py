@@ -24,6 +24,32 @@ def index():
     return render_template('index.html',title = title,allposts=allposts)
 
 
+@main.route('/fashion')
+def fashion():
+    
+
+    title = 'blog!'
+     
+    allposts = Blogpost.query.all()
+
+    
+    return render_template('fashion.html',title = title,allposts=allposts)
+
+
+@main.route('/lifestyle')
+def lifestyle():
+    '''
+    view  lifestyle page function that returns 
+    the lifestyle page and its data
+    '''
+
+    title = 'blog!'
+     
+    allposts = Blogpost.query.all()
+
+    
+    return render_template('lifestyle.html',title = title,allposts=allposts)
+
 @main.route('/admin',methods = ['GET','POST'])
 @login_required
 def admin():

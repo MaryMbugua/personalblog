@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from .. import db,photos
-from ..models import Admin,Blogpost,Blogpics
+from ..models import Admin,Blogpost,Blogpics,Comment
 from flask_login import login_required
 from .forms import BlogpostForm,PicsuploadForm
 
@@ -23,6 +23,17 @@ def index():
     
     return render_template('index.html',title = title,allposts=allposts)
 
+@main.route('/blogpost/<int:id>',methods=['GET','POST'])
+def singleblogpost(id):
+    
+
+    title = 'Blogpost'
+     
+    singlepost = Blogpost.query.get(id)
+    comments = Comment.get_comments(id)
+
+    
+    return render_template('index.html',title = title,singlepost=singlepost,comments=comments)
 
 @main.route('/fashion')
 def fashion():

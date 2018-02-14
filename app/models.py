@@ -76,6 +76,7 @@ class Subscriber(UserMixin,db.Model):
 
     def __repr__(self):
         return f'{self.email}'
+        
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer,primary_key = True)

@@ -9,19 +9,19 @@
   <link rel="stylesheet" href="{{url_for('static',filename='css/macros.css')}}">
 </head>
 
-    <div class="jumbotron">
-        <div class="container">
+    <div class="jumbotron jumbotronff">
+        
             <h2>{{post.title}}</h2>
-            <h4>{{post.date}</h4>
+            <h4>{{post.date}}</h4>
             
             <img src="pics/pic11.jpg" class="img-responsive" alt="Responsive image">
             
             <p>
                 {{post.paragraph1}}  
-                <a  href="/{{post.id}}">Read more</a>
+                <a class="linkwhite" href="/{{post.id}}">Read more</a>
                             
             </p>
-        </div> <!-- container -->
+       
     </div> <!-- jumbotron -->
             
             

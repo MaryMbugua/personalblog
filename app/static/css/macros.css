@@ -23,8 +23,11 @@ p{font-family: 'Open Sans Condensed', sans-serif;
 
 
 /*background colours*/
-.jumbotron {color: inherit;
-      background-color: #fff;}
+.jumbotronff {color: inherit;
+      background-color: #fff;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;}
 
 
 /*hr line made black*/
@@ -33,6 +36,6 @@ hr {margin-top: 20px;
            border: 0;
            border-top: 1px solid #000;}
 /*colour for anchor tag a part for readmore*/
-a { font-size: 30px;
+.linkwhite{ font-size: 2s0px;
     color: #000;
     text-decoration: none;}

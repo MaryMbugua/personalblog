@@ -1,3 +1,4 @@
+{% import 'bootstrap/wtf.html' as wtf %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,14 +56,17 @@
 <hr> <!-- line dividing -->
 </div>
 
+
+
  <!--blogposts called from database  -->
 <div class="container">
+        
         <h2>{{singlepost.title}}</h2>
         <h4>{{singlepost.date}}</h4>
         <img src="" alt="">
         <p>{{singlepost.paragraph1}}</p>
 
-        <div class="row">
+        <!-- <div class="row">
                 <div class="col-lg-6 col-md-6 cl-sm-6 col-xs-12">
                  <a href="#" class="thumbnail">
                     <img src="pics/pic3.jpg" class="img-responsive" alt="Responsive image">
@@ -76,9 +80,9 @@
                     </a>
                    </div>
            
-            </div>
+            </div> -->
         <p>{{singlepost.paragraph2}}</p>
-        <div class="row">
+        <!-- <div class="row">
                 <div class="col-lg-6 col-md-6 cl-sm-6 col-xs-12">
                  <a href="#" class="thumbnail">
                     <img src="pics/food7.jpg" class="img-responsive" alt="Responsive image">
@@ -92,9 +96,9 @@
                     </a>
                </div>
            
-        </div>
+        </div> -->
         <p>{{singlepost.paragraph3}}</p>
-        <div class="row">
+        <!-- <div class="row">
                 <div class="col-lg-6 col-md-6 cl-sm-6 col-xs-12">
                  <a href="#" class="thumbnail">
                     <img src="pics/food7.jpg" class="img-responsive" alt="Responsive image">
@@ -108,17 +112,38 @@
                     </a>
                </div>
            
-        </div>
+        </div> -->
         <p>{{singlepost.paragraph4}}</p>
+        
 </div> 
+
+
+
+
+{% for comment in comments %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <hr>
+        
+        <p style="color:orange">{{comment.username}} </p>
+        <p style="color:orange">{{comment.commcontent}} </p>
+        <button type="submit" class="Commentbutton"> <a href="{{url_for('main.delete_comment')}}">delete comment</a> </button>
+
+    </div>
+    {% endfor %} 
+    
+
+
+
 
 <div class="container">
         <hr> <!-- line dividing -->
-    </div>
-
-
-
- <h5>insert comment section here</h5>
+</div>
+<div class="container">
+    <div class="container">
+ <!-- <h5>insert comment section here</h5> -->
+{{ wtf.quick_form(comment_form)}}
+</div>
+</div>
 
 
 
@@ -129,10 +154,10 @@
 <!-- GET UPDATES -->
 <div id="pen">
         <div class="container" >
-                <p>tesssst    sfgYSUF SDYFU yyyy</p>
+                <p>Get Updates!</p>
         
         
-                <form class="form-inline">
+                <!-- <form class="form-inline">
         
                          
                         <div class="form-group">
@@ -143,7 +168,7 @@
                         <button type="submit" class="btn btn-default">Notify Me</button>
         
                 </form>
-        
+         -->
         </div>
         
 </div> <!-- end of id pen -->

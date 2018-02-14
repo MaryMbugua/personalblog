@@ -2,8 +2,8 @@ from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from .. import db,photos
 from ..models import Admin,Blogpost,Blogpics,Comment
-from flask_login import login_required
-from .forms import BlogpostForm,PicsuploadForm
+from flask_login import login_required,current_user
+from .forms import BlogpostForm,PicsuploadForm,CommentsForm
 
 
 
@@ -28,12 +28,28 @@ def singleblogpost(id):
     
 
     title = 'Blogpost'
-     
-    singlepost = Blogpost.query.get(id)
-    comments = Comment.get_comments(id)
-
+    post = Blogpost.query.filter_by(id=id).one()
     
-    return render_template('index.html',title = title,singlepost=singlepost,comments=comments)
+    comments = Comment.get_comments(id)
+    singlepost = Blogpost.query.get(id)
+    form = CommentsForm()
+    if form.validate_on_submit():
+        comment = Comment(username = form.username.data,commcontent = form.commcontent.data,blogpost_id=id)
+        db.session.add(comment)
+        db.session.commit()
+        flash("blogpost successfully uploaded")
+        return redirect(url_for('main.index'))
+        
+    
+    return render_template('blogpost.html',title = title,singlepost=singlepost,comments=comments,comment_form=form)
+@main.route('/blogpost/delete',methods=['GET','POST'])
+def delete_comment():
+    commentsDelete = Comment.query.filter_by(id=Comment.id).first()
+    if commentsDelete:
+        commentsDelete.delete_comment()
+        return redirect(url_for('main.index'))
+    return render_template('blogpost.html',commentsDelete=commentsDelete)
+
 
 @main.route('/fashion')
 def fashion():
@@ -137,6 +153,10 @@ def blogpostfinal():
     '''
 
     return render_template('blogpostfinal.html')
+
+
+
+
 
 
 

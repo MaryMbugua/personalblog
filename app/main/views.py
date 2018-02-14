@@ -1,10 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from .. import db,photos
-from ..models import Admin,Blogpost,Blogpics,Comment
+from ..models import Admin,Blogpost,Blogpics,Comment,Subscriber
 from flask_login import login_required,current_user
-from .forms import BlogpostForm,PicsuploadForm,CommentsForm
-
+from .forms import BlogpostForm,PicsuploadForm,CommentsForm,SubscriptionForm
+from ..email import mail_message
 
 
 
@@ -19,9 +19,34 @@ def index():
     title = 'blog!'
      
     allposts = Blogpost.query.all()
+    formone=SubscriptionForm()
+    if formone.validate_on_submit():
+        subscriber = Subscriber(email=formone.email.data)
+        db.session.add(subscriber)
+        db.session.commit()
+
+        mail_message("Welcome BeingZen","email/welcome_subbie",subscriber.email,subscriber=subscriber)
+        flash('A confirmation by email has been sent to you by email')
+        return redirect(url_for('main.index'))
+        title = 'Subscribe'
+    
 
     
-    return render_template('index.html',title = title,allposts=allposts)
+    return render_template('index.html',title = title,allposts=allposts,subscribe_form=formone)
+# @main.route('/blogpost/subscribe',methods=['GET','POST'])
+# def subscribe():
+#     formone=SubscriptionForm()
+
+#     if formone.validate_on_submit():
+#         subscriber = Subscriber(name=formone.name.data,email=formone.email.data)
+#         db.session.add(subscriber)
+#         db.session.commit()
+
+#         mail_message("Welcome BeingZen","email/welcome_subbie",subscriber.email,subscriber=subscriber)
+#         flash('A confirmation by email has been sent to you by email')
+#         return redirect(url_for('main.index'))
+#         title = 'Subscribe'
+#     return render_template('blogpost.html',subscribe_form=formone)
 
 @main.route('/blogpost/<int:id>',methods=['GET','POST'])
 def singleblogpost(id):
@@ -39,9 +64,21 @@ def singleblogpost(id):
         db.session.commit()
         flash("blogpost successfully uploaded")
         return redirect(url_for('main.index'))
-        
     
-    return render_template('blogpost.html',title = title,singlepost=singlepost,comments=comments,comment_form=form)
+    formone=SubscriptionForm()
+    if formone.validate_on_submit():
+        subscriber = Subscriber(email=formone.email.data)
+        db.session.add(subscriber)
+        db.session.commit()
+
+        mail_message("Welcome BeingZen","email/welcome_subbie",subscriber.email,subscriber=subscriber)
+        flash('A confirmation by email has been sent to you by email')
+        return redirect(url_for('main.index'))
+        title = 'Subscribe'
+    
+    return render_template('blogpost.html',title = title,singlepost=singlepost,subscribe_form=formone,comments=comments,comment_form=form)
+
+
 @main.route('/blogpost/delete',methods=['GET','POST'])
 def delete_comment():
     commentsDelete = Comment.query.filter_by(id=Comment.id).first()
@@ -49,6 +86,7 @@ def delete_comment():
         commentsDelete.delete_comment()
         return redirect(url_for('main.index'))
     return render_template('blogpost.html',commentsDelete=commentsDelete)
+
 
 
 @main.route('/fashion')
@@ -93,10 +131,13 @@ def blogpost():
     View root page function that returns the index page and its data
     '''
     form = BlogpostForm()
+    subscriber= Subscriber.query.all()
     if form.validate_on_submit():
         post = Blogpost(title = form.title.data,date = form.date.data,paragraph1 = form.paragraph1.data,paragraph2 = form.paragraph2.data,paragraph3 = form.paragraph3.data,paragraph4 = form.paragraph4.data,category = form.category.data)
         db.session.add(post)
         db.session.commit()
+        for sub in subscriber:
+            mail_message("New Blog Alert","email/update",sub.email,sub=sub)
         flash("blogpost successfully uploaded")
         return redirect(url_for('main.blogpost'))
 

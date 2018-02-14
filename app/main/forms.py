@@ -3,7 +3,7 @@ from wtforms import StringField,TextAreaField,SubmitField,FileField,RadioField,B
 from wtforms.validators import Required,AnyOf,Email
 from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
-from ..models import Blogpost,Blogpics,Comment
+from ..models import Blogpost,Blogpics,Comment,Subscriber
 
 class BlogpostForm(FlaskForm):
     title = StringField('title',validators=[Required()])

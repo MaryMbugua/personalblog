@@ -1,4 +1,5 @@
 {% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,8 +68,8 @@
         <div class="container" >
                 <p>Get Updates!</p>
         
-        
-                <form class="form-inline">
+                {{ wtf.quick_form(subscribe_form)}}
+                <!-- <form class="form-inline">
         
                          
                         <div class="form-group">
@@ -78,7 +79,7 @@
         
                         <button type="submit" class="btn btn-default">Notify Me</button>
         
-                </form>
+                </form> -->
         
         </div>
         

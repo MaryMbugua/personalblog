@@ -36,7 +36,7 @@ def logout():
     return redirect(url_for("auth/adminlogin.html"))
 
 @auth.route('/register',methods = ["GET","POST"])
-def register():
+def subbie():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)

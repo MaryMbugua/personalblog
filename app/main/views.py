@@ -5,7 +5,7 @@ from ..models import Admin,Blogpost,Blogpics,Comment,Subscriber
 from flask_login import login_required,current_user
 from .forms import BlogpostForm,PicsuploadForm,CommentsForm,SubscriptionForm
 from ..email import mail_message
-
+from datetime import datetime
 
 
 #Views
@@ -18,7 +18,7 @@ def index():
 
     title = 'blog!'
      
-    allposts = Blogpost.query.all()
+    allposts = Blogpost.query.order_by(Blogpost.date.desc()).all()
     formone=SubscriptionForm()
     if formone.validate_on_submit():
         subscriber = Subscriber(email=formone.email.data)
@@ -95,7 +95,7 @@ def fashion():
 
     title = 'blog!'
      
-    allposts = Blogpost.query.all()
+    allposts = Blogpost.query.filter_by(category='fashion').all()
 
     
     return render_template('fashion.html',title = title,allposts=allposts)
@@ -110,7 +110,7 @@ def lifestyle():
 
     title = 'blog!'
      
-    allposts = Blogpost.query.all()
+    allposts = Blogpost.query.filter_by(category='lifestyle').all()
 
     
     return render_template('lifestyle.html',title = title,allposts=allposts)
@@ -124,6 +124,15 @@ def admin():
    
 
     return render_template('admin.html')
+@main.route('/admin/editpost',methods = ['GET','POST'])
+@login_required
+def edit_post():
+    '''
+    View root page function that returns the index page and its data
+    '''
+   
+
+    return render_template('editposts.html')
 @main.route('/post',methods = ['GET','POST'])
 @login_required
 def blogpost():
@@ -133,7 +142,7 @@ def blogpost():
     form = BlogpostForm()
     subscriber= Subscriber.query.all()
     if form.validate_on_submit():
-        post = Blogpost(title = form.title.data,date = form.date.data,paragraph1 = form.paragraph1.data,paragraph2 = form.paragraph2.data,paragraph3 = form.paragraph3.data,paragraph4 = form.paragraph4.data,category = form.category.data)
+        post = Blogpost(title = form.title.data,fake_date = form.fake_date.data,date = form.date.data,paragraph1 = form.paragraph1.data,paragraph2 = form.paragraph2.data,paragraph3 = form.paragraph3.data,paragraph4 = form.paragraph4.data,category = form.category.data)
         db.session.add(post)
         db.session.commit()
         for sub in subscriber:

@@ -33,7 +33,8 @@ class Blogpost(UserMixin,db.Model):
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer,primary_key = True)
     title = db.Column(db.String())
-    date = db.Column(db.String(255))
+    date = db.Column(db.String())
+    fake_date = db.Column(db.String(255))
     category = db.Column(db.String(255))
     paragraph1 = db.Column(db.String())
     paragraph2 = db.Column(db.String())

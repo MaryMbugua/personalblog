@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,FileField,RadioField,BooleanField
+from wtforms import StringField,TextAreaField,SubmitField,DateField,FileField,RadioField,BooleanField
 from wtforms.validators import Required,AnyOf,Email
 from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
@@ -7,7 +7,8 @@ from ..models import Blogpost,Blogpics,Comment,Subscriber
 
 class BlogpostForm(FlaskForm):
     title = StringField('title',validators=[Required()])
-    date = StringField('date',validators=[Required()])
+    date = DateField('Date',validators=[Required()])
+    fake_date = StringField('Fake date',validators=[Required()])
     category = RadioField('Pick from the following categories',choices=[('lifestyle','Lifestyle'),('fashion','Fashion')],validators=[Required()])
     paragraph1 = TextAreaField('Paragraph onee...A must',validators=[Required()])
     paragraph2 = TextAreaField('Paragraph two')
